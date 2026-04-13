@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { Check, Star } from 'lucide-react'
+import { Scissors, FaceMask, HairDryer, Star, Check } from '@phosphor-icons/react'
 
 const servicios = [
-  { nombre: 'Corte Clásico', precio: '25.000', desc: 'Corte personalizado con acabado impecable' },
-  { nombre: 'Arreglo de Barba', precio: '20.000', desc: 'Perfilado y definición con navaja' },
-  { nombre: 'Cejas', precio: '10.000', desc: 'Diseño y depilación profesional' },
-  { nombre: 'Afeitado Clásico', precio: '30.000', desc: 'Ritual completo con toallas calientes' },
+  { nombre: 'Corte Clásico', precio: '25.000', desc: 'Corte personalizado con acabado impecable', Icon: Scissors },
+  { nombre: 'Arreglo de Barba', precio: '20.000', desc: 'Perfilado y definición con navaja', Icon: FaceMask },
+  { nombre: 'Cejas', precio: '10.000', desc: 'Diseño y depilación profesional', Icon: Star },
+  { nombre: 'Afeitado Clásico', precio: '30.000', desc: 'Ritual completo con toallas calientes', Icon: HairDryer },
 ]
 
 const combos = [
@@ -40,19 +40,33 @@ function ServicioCard({ s, index }) {
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -5, boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)' }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
-      className="p-5 border border-[#c9a84c]/12 bg-[#0f0f0f] hover:border-[#c9a84c]/35 transition-all duration-300 group"
+      className="p-6 rounded-[32px] border border-[#c9a84c]/12 bg-[#090909] hover:bg-[#111111] hover:border-[#c9a84c]/35 transition-all duration-300 group cursor-pointer shadow-[0_18px_45px_rgba(0,0,0,0.16)]"
     >
-      <div className="flex justify-between items-start mb-2">
-        <h3 className="font-serif text-lg text-[#f5f0e8] group-hover:text-[#c9a84c] transition-colors duration-300">
+      <div className="flex items-center gap-3 mb-4 justify-center">
+        <div className="w-12 h-12 rounded-full border border-[#c9a84c]/25 bg-[#0f0f0f] flex items-center justify-center group-hover:border-[#c9a84c] transition-colors duration-300">
+          <s.Icon size={22} className="text-[#c9a84c] group-hover:text-[#f5f0e8] transition-colors duration-300" />
+        </div>
+        <h3 className="font-serif text-xl text-[#f5f0e8] group-hover:text-[#c9a84c] transition-colors duration-300 tracking-[0.18em]">
           {s.nombre}
         </h3>
-        <span className="text-[#c9a84c] font-semibold text-base whitespace-nowrap ml-3">
-          ${s.precio}
-        </span>
       </div>
-      <p className="text-[#f5f0e8]/45 text-sm leading-relaxed">{s.desc}</p>
+      <p className="text-[#f5f0e8]/45 text-sm leading-relaxed mb-5">{s.desc}</p>
+      <div className="flex flex-col gap-4 items-center">
+        <span className="text-[#c9a84c] font-semibold text-base tracking-[0.2em]">${s.precio}</span>
+        <motion.a
+          href={WHATSAPP}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.98 }}
+          className="inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-full border border-[#c9a84c]/25 bg-[#121212]/90 px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#c9a84c] transition-all duration-300 hover:border-[#c9a84c] hover:bg-[#c9a84c]/12 hover:text-[#f5f0e8]"
+        >
+          Reservar ahora
+        </motion.a>
+      </div>
     </motion.div>
   )
 }
@@ -62,12 +76,13 @@ function ComboCard({ combo, index }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -5, boxShadow: '0 20px 60px rgba(0, 0, 0, 0.28)' }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`relative flex flex-col p-6 border transition-all duration-300 ${
+      className={`relative flex flex-col p-6 rounded-[32px] border transition-all duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.18)] ${
         combo.destacado
           ? 'border-[#c9a84c] bg-[#0f0e0a]'
-          : 'border-[#c9a84c]/15 bg-[#0f0f0f] hover:border-[#c9a84c]/35'
+          : 'border-[#c9a84c]/15 bg-[#0f0f0f] hover:border-[#c9a84c]/35 hover:bg-[#0c0c0c]'
       }`}
     >
       {combo.destacado && (
@@ -78,7 +93,7 @@ function ComboCard({ combo, index }) {
       )}
 
       <div className="mb-1">
-        <h3 className="font-serif text-xl font-bold text-[#f5f0e8]">{combo.nombre}</h3>
+        <h3 className="font-serif text-xl font-bold text-[#f5f0e8] tracking-wide">{combo.nombre}</h3>
         <p className="text-[#c9a84c] text-xs tracking-wider mt-0.5">{combo.ahorro}</p>
       </div>
 
@@ -96,18 +111,20 @@ function ComboCard({ combo, index }) {
         ))}
       </ul>
 
-      <a
+      <motion.a
         href={WHATSAPP}
         target="_blank"
         rel="noopener noreferrer"
-        className={`block text-center py-3 text-sm font-semibold tracking-widest uppercase transition-all duration-300 active:scale-95 ${
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className={`inline-flex w-full items-center justify-center rounded-full py-3 text-sm font-semibold tracking-widest uppercase transition-all duration-300 border ${
           combo.destacado
-            ? 'bg-[#c9a84c] text-[#0a0a0a] hover:bg-[#e2bc5f]'
-            : 'border border-[#c9a84c]/40 text-[#c9a84c] hover:bg-[#c9a84c]/10'
+            ? 'border-[#c9a84c] bg-[#c9a84c] text-[#0a0a0a] hover:bg-[#e2bc5f]'
+            : 'border-[#c9a84c]/40 bg-[#121212]/80 text-[#c9a84c] hover:bg-[#c9a84c]/12 hover:border-[#c9a84c] hover:text-[#f5f0e8]'
         }`}
       >
         Reservar
-      </a>
+      </motion.a>
     </motion.div>
   )
 }

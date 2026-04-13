@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { Instagram } from '@phosphor-icons/react'
-
+import { InstagramLogo } from "@phosphor-icons/react";
 
 // Imágenes de ejemplo — reemplaza con tus fotos reales
 const fotos = [
@@ -55,10 +54,10 @@ export default function Galeria() {
                   foto.tall ? 'h-64 md:h-80' : 'h-44 md:h-52'
                 }`}
               />
-              {/* Overlay al hover */}
+              {/* Overlay al hover - CORREGIDO: Usando InstagramLogo */}
               <div className="absolute inset-0 bg-[#0a0a0a]/0 group-hover:bg-[#0a0a0a]/30 transition-all duration-500 flex items-center justify-center">
-                <Instagram
-                  size={22}
+                <InstagramLogo
+                  size={32}
                   className="text-[#c9a84c] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
@@ -80,7 +79,7 @@ export default function Galeria() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-8 py-3 border border-[#c9a84c]/35 text-[#c9a84c] text-sm tracking-widest uppercase hover:bg-[#c9a84c]/10 transition-all duration-300"
           >
-            <Instagram size={15} />
+            <InstagramLogo size={24} />
             Ver más en Instagram
           </a>
         </motion.div>

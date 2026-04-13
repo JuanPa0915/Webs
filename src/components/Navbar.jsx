@@ -51,26 +51,28 @@ export default function Navbar() {
         </button>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <li key={l.href}>
+        <div className="hidden md:flex flex-1 justify-center">
+          <ul className="list-none flex items-center gap-4">
+            {links.map((l) => (
+              <li key={l.href}>
+                <button
+                  onClick={() => scrollTo(l.href)}
+                  className="rounded-full border border-transparent bg-[#111111] px-5 py-2 text-[#f5f0e8]/80 hover:border-[#c9a84c]/40 hover:bg-[#111111]/90 hover:text-[#c9a84c] text-sm tracking-widest uppercase transition-all duration-300"
+                >
+                  {l.label}
+                </button>
+              </li>
+            ))}
+            <li>
               <button
-                onClick={() => scrollTo(l.href)}
-                className="text-[#f5f0e8]/70 hover:text-[#c9a84c] text-sm tracking-widest uppercase transition-colors duration-300"
+                onClick={() => scrollTo('#servicios')}
+                className="rounded-full border border-[#c9a84c] bg-[#121212] px-5 py-2 text-[#c9a84c] text-sm tracking-widest uppercase hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition-all duration-300"
               >
-                {l.label}
+                Reservar
               </button>
             </li>
-          ))}
-          <li>
-            <button
-              onClick={() => scrollTo('#servicios')}
-              className="ml-2 px-5 py-2 border border-[#c9a84c] text-[#c9a84c] text-sm tracking-widest uppercase hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition-all duration-300"
-            >
-              Reservar
-            </button>
-          </li>
-        </ul>
+          </ul>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -91,12 +93,12 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-[#0d0d0d] border-t border-[#c9a84c]/20 overflow-hidden"
           >
-            <ul className="flex flex-col px-5 py-4 gap-5">
+            <ul className="list-none flex flex-col px-5 py-4 gap-5">
               {links.map((l) => (
                 <li key={l.href}>
                   <button
                     onClick={() => scrollTo(l.href)}
-                    className="text-[#f5f0e8]/70 hover:text-[#c9a84c] text-sm tracking-widest uppercase w-full text-left transition-colors"
+                    className="w-full rounded-full border border-transparent bg-[#111111] px-4 py-3 text-left text-[#f5f0e8]/80 hover:border-[#c9a84c]/40 hover:bg-[#111111]/90 hover:text-[#c9a84c] text-sm tracking-widest uppercase transition-all duration-300"
                   >
                     {l.label}
                   </button>
@@ -105,7 +107,7 @@ export default function Navbar() {
               <li>
                 <button
                   onClick={() => scrollTo('#servicios')}
-                  className="w-full py-3 border border-[#c9a84c] text-[#c9a84c] text-sm tracking-widest uppercase hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition-all duration-300"
+                  className="w-full rounded-full border border-[#c9a84c] bg-[#121212] px-4 py-3 text-[#c9a84c] text-sm tracking-widest uppercase hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition-all duration-300"
                 >
                   Reservar Cita
                 </button>

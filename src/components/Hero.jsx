@@ -50,9 +50,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: 'easeOut' }}
-          className="font-serif text-7xl md:text-9xl font-bold tracking-[0.15em] text-[#f5f0e8] mb-4"
+          className="font-serif text-7xl md:text-[7.5rem] xl:text-[8.5rem] font-bold tracking-[0.25em] text-[#f5f0e8] leading-none mb-4"
         >
           PARIAZ
+          <span className="block text-3xl md:text-4xl uppercase tracking-[0.5em] text-[#c9a84c] mt-2">
+            BARBERÍA
+          </span>
         </motion.h1>
 
         {/* Línea separadora */}
