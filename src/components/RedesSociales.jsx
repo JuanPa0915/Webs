@@ -7,7 +7,7 @@ const redes = [
     nombre: 'Instagram',
     handle: '@pariaz_barberia',
     desc: 'Nuestros mejores cortes, novedades y promociones',
-    href: 'https://instagram.com/pariaz',
+    href: 'https://www.instagram.com/pariazsalon/',
     Icon: InstagramLogo, // Nombre exacto en Phosphor
     color: 'hover:border-pink-500/50 hover:text-pink-400',
   },

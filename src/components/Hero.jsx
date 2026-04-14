@@ -14,16 +14,16 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background image con overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600&q=80"
-          alt="Barbería Pariaz"
-          className="w-full h-full object-cover"
-        />
-        {/* Gradiente oscuro multi-capa */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/60 to-[#0a0a0a]" />
-        <div className="absolute inset-0 bg-[#0a0a0a]/30" />
-      </div>
+    <div className="absolute inset-0 z-0">
+      <img
+    src="/img/Principal.png" 
+    alt="Barbería Pariaz"
+    className="w-full h-full object-cover"
+    />
+   {/* Gradiente oscuro multi-capa */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/60 to-[#0a0a0a]" />
+  <div className="absolute inset-0 bg-[#0a0a0a]/30" />
+</div>
 
       {/* Línea decorativa dorada izquierda */}
       <motion.div
