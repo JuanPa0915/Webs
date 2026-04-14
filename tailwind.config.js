@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  // Asegúrate de que la ruta incluya todas las subcarpetas de src
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -8,6 +12,7 @@ export default {
         sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
+        // Tus colores personalizados para la marca
         gold: {
           DEFAULT: '#c9a84c',
           light: '#e2bc5f',
